@@ -1,0 +1,322 @@
+/* courgette-regular - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Courgette";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/courgette-v17-latin_latin-ext-regular.woff2")
+    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+:root {
+  --white: #fff;
+  --black: #1c2b2d;
+  --blue: #007bff;
+  --light-blue: #5bc0de;
+  --color-primary: #f76c6c;
+  --color-secondary: #ffdd57;
+  --color-grey: #eee;
+  --color-dark-grey: #222831;
+  --background: linear-gradient(135deg, #1c92d2, #f2fcfe);
+  --play-color: #4caf50;
+  --prev-next-color: #ff9800;
+  --hover-color: #ffc107;
+  --high-volume-color: #4caf50;
+  --low-volume-color: #f44336;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Courgette", sans-serif;
+  background: var(--background);
+  color: var(--black);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.music {
+  position: relative;
+  background: var(--white);
+  width: 35rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header .fas {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.details {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.details img {
+  width: 70%;
+  border: 5px solid var(--color-secondary);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.details img:hover {
+  transform: scale(1.05);
+}
+
+.details .title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.details .artist {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.controls {
+  background: var(--light-blue);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.song-timer {
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+input[type="range"] {
+  appearance: none;
+  width: 80%;
+  outline: none;
+  height: 2px;
+  margin: 0 10%;
+  background: var(--color-secondary);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  height: 2rem;
+  width: 2rem;
+  background: var(--color-primary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.duration input[type="range"] {
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+}
+
+.buttons > button {
+  border: none;
+  outline: none;
+  background: var(--color-primary);
+  padding: 1rem;
+  cursor: pointer;
+  color: var(--white);
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.buttons > button:hover {
+  background: var(--hover-color);
+  transform: scale(1.2);
+}
+
+.play {
+  background: var(--play-color);
+  font-size: 3rem; /* Make the play icon larger */
+}
+
+.prev,
+.next {
+  background: var(--prev-next-color);
+  font-size: 3rem; /* Make the prev and next icons larger */
+}
+
+.play-all {
+  display: block;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border: none;
+  background: var(--color-primary);
+  color: var(--white);
+  border-radius: 10px;
+  font-size: 1.6rem;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.play-all:hover {
+  background: var(--hover-color);
+  transform: scale(1.05);
+}
+
+.volume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0 1rem 0;
+}
+
+.volume p {
+  background: var(--color-primary);
+  color: var(--white);
+  font-size: 1.4rem;
+  height: 2rem;
+  padding: 0 1rem;
+  margin-right: 8px;
+}
+
+.volume i {
+  background: var(--color-secondary);
+  color: var(--white);
+  font-size: 1.4rem;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.volume i:hover {
+  background: var(--hover-color);
+  transform: scale(1.1);
+}
+
+.music-playlist {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  transition: all 0.5s;
+  border-radius: 0;
+}
+
+.playlist-header {
+  color: var(--white);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-grey);
+}
+
+.playlist-header .fa-times {
+  cursor: pointer;
+}
+
+.playlist-div {
+  width: 100%;
+  height: 80vh;
+  overflow-y: auto;
+}
+
+.playlist-div::-webkit-scrollbar {
+  height: 5px;
+  width: 4px;
+  background: #d5d5d5;
+}
+
+.playlist-div::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  outline: 1px solid #eee;
+}
+
+.playlist {
+  display: flex;
+  align-items: center;
+  color: var(--white);
+}
+
+.song-index {
+  font-size: 1.4rem;
+  margin-right: 1rem;
+}
+
+.playlist p {
+  width: 90%;
+  font-size: 1.4rem;
+  border-bottom: 1px solid var(--color-grey);
+  padding: 1rem 0;
+  cursor: pointer;
+}
+
+/* Volume percentage display */
+.volume p {
+  display: inline-block;
+  background: var(--low-volume-color); /* default to low volume color */
+  transition: background 0.3s, color 0.3s;
+}
+
+.volume input[type="range"] {
+  width: 50%;
+}
+
+.volume input[type="range"]::-webkit-slider-thumb {
+  height: 1rem;
+  width: 1rem;
+  background: var(--color-primary);
+  border-radius: 50%;
+  cursor: pointer;
+}
